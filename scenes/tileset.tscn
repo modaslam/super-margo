@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/tiles/liquidWaterTop_mid.png" type="Texture" id=1]
+[ext_resource path="res://assets/tiles/grassRight.png" type="Texture" id=2]
+[ext_resource path="res://assets/tiles/grassMid.png" type="Texture" id=3]
+[ext_resource path="res://assets/tiles/grassLeft.png" type="Texture" id=4]
+[ext_resource path="res://assets/tiles/liquidWater.png" type="Texture" id=5]
+[ext_resource path="res://assets/tiles/grassCenter.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35.299, 34.9293 )
+
+[node name="Tileset" type="Node2D"]
+
+[node name="GrassMid" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrassMid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassMid/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="GrassLeft" type="Sprite" parent="."]
+position = Vector2( 70, 0 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrassLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassLeft/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="GrassRight" type="Sprite" parent="."]
+position = Vector2( 140, 0 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrassRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassRight/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="GrassCenter" type="Sprite" parent="."]
+position = Vector2( 210, 0 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrassCenter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassCenter/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="WaterTop" type="Sprite" parent="."]
+position = Vector2( 0, 70 )
+texture = ExtResource( 1 )
+
+[node name="WaterCenter" type="Sprite" parent="."]
+position = Vector2( 70, 70 )
+texture = ExtResource( 5 )
