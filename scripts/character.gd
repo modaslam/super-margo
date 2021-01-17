@@ -8,7 +8,7 @@ onready var _sprite = get_node("AnimatedSprite")
 #--------------------------------------------
 
 const WALK_FORCE = 600
-const WALK_MAX_SPEED = 200
+const WALK_MAX_SPEED = 300
 const STOP_FORCE = 1300
 const JUMP_SPEED = 700
 const GRAVITY = 1100.0 # Pixels/second

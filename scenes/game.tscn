@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/character/p1_walk06.png" type="Texture" id=1]
 [ext_resource path="res://assets/character/p1_walk01.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/tiles/cloud2.png" type="Texture" id=10]
 [ext_resource path="res://assets/tiles/cloud3.png" type="Texture" id=11]
 [ext_resource path="res://assets/tiles/cloud1.png" type="Texture" id=12]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,7 +28,7 @@ extents = Vector2( 28.2493, 56.1968 )
 [node name="Game" type="Node"]
 
 [node name="Character" type="KinematicBody2D" parent="."]
-position = Vector2( 626.292, 317.641 )
+position = Vector2( 265.955, 317.641 )
 script = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Character"]
@@ -93,3 +94,26 @@ __meta__ = {
 position = Vector2( 847.441, -110.169 )
 scale = Vector2( 1.76206, 1.21318 )
 texture = ExtResource( 12 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 695.476, 456.091 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 627.441, 456.091 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 763.512, 456.091 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1103.69, 245.244 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1170.47, 245.244 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1354.76, 177.82 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1639.44, 458.004 )
