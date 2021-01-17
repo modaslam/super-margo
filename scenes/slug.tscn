@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/enemy/slimeWalk1.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemy/slimeWalk2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/slug.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 38.2796, 22.2186 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "crawl"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 2 ) ]
+}
+
+[node name="Slug" type="Path2D"]
+curve = null
+
+[node name="Follow" type="PathFollow2D" parent="."]
+position = Vector2( 2.46008, -2.20816 )
+rotation = -0.0121204
+
+[node name="Body" type="KinematicBody2D" parent="Follow"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Follow/Body"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Shape" type="CollisionShape2D" parent="Follow/Body"]
+shape = SubResource( 2 )
+
+[node name="Anim" type="AnimationPlayer" parent="Follow/Body"]
+anims/crawl = SubResource( 3 )
