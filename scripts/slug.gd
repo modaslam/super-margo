@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 # 1 is right, -1 is left
 var direction = -1
-
+var alive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,3 +22,12 @@ func _physics_process(delta):
 		get_node("Sprite").set_flip_h(true)
 	else:
 		get_parent().set_unit_offset(new_offset)
+
+func crush():
+	if not alive: return
+	alive = false
+	get_node("Anim").stop()
+	get_node("Sprite").set_texture(load("res://assets/enemy/slimeDead.png"))
+	get_node("Sprite").set_offset(Vector2(0, 8))
+	get_node("Shape").queue_free()
+	set_physics_process(false)

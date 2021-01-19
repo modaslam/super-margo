@@ -64,6 +64,7 @@ tracks/0/keys = {
 radius = 24.25
 
 [node name="Coin" type="Area2D"]
+collision_layer = 4096
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
