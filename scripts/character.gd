@@ -89,3 +89,9 @@ func die():
 func _on_Body_body_entered(body):
 	if not alive: return
 	die()
+
+
+func _on_Head_body_entered(body):
+	if not alive: return
+	if body.has_method("destroy"):
+		body.destroy()
