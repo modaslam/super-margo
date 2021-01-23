@@ -20,3 +20,22 @@ func change_camera():
 
 func _on_Character_died():
 	change_camera()
+	
+	get_node("SpawnTime").set_wait_time(2)
+	get_node("SpawnTime").start()
+
+
+func _on_SpawnTime_timeout():
+	revive()
+
+
+func revive():
+	_character.position = get_node("SpawnPoint").position
+	_character.revive()
+
+
+func _on_Character_end():
+	change_camera()
+	
+	get_node("SpawnTime").set_wait_time(3)
+	get_node("SpawnTime").start()

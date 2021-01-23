@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=2]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [ext_resource path="res://assets/tiles/liquidWaterTop_mid.png" type="Texture" id=1]
 [ext_resource path="res://assets/tiles/grassRight.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/tiles/grassLeft.png" type="Texture" id=4]
 [ext_resource path="res://assets/tiles/liquidWater.png" type="Texture" id=5]
 [ext_resource path="res://assets/tiles/grassCenter.png" type="Texture" id=6]
+[ext_resource path="res://assets/tiles/signExit.png" type="Texture" id=7]
+[ext_resource path="res://assets/tiles/signRight.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.299, 34.9293 )
@@ -123,3 +125,31 @@ extents = Vector2( 35.299, 34.9293 )
 5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
+6/name = "Exit"
+6/texture = ExtResource( 7 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 70, 70 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 35, 35 )
+6/navigation_offset = Vector2( 35, 35 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "Sign"
+7/texture = ExtResource( 8 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 70, 70 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 35, 35 )
+7/navigation_offset = Vector2( 35, 35 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0

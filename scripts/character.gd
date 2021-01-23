@@ -6,8 +6,10 @@ onready var _rayD = get_node("RayD")
 onready var _sprite = get_node("AnimatedSprite")
 
 var alive = true
+var end = false
 
 signal died
+signal end
 
 var left
 var right
@@ -28,8 +30,9 @@ var velocity = Vector2()
 func _physics_process(delta):
 	
 	var walk_left = Input.is_action_pressed("move_left") or left
-	var walk_right = Input.is_action_pressed("move_right") or right
+	var walk_right = Input.is_action_pressed("move_right") or right or end
 	var jump = Input.is_action_pressed("jump") or up
+	
 	
 	# Horizontal movement code. First, get the player's input.
 	var walk = WALK_FORCE * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
@@ -42,7 +45,9 @@ func _physics_process(delta):
 			velocity.x += walk * delta
 		# Clamp to the maximum horizontal movement speed.
 		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
-
+	if end:
+		velocity.x += WALK_FORCE * 10 * delta
+	
 	# Vertical movement code. Apply gravity.
 	velocity.y += GRAVITY * delta
 
@@ -99,3 +104,16 @@ func _on_Head_body_entered(body):
 	if not alive: return
 	if body.has_method("destroy"):
 		body.destroy()
+
+
+func revive():
+	velocity = Vector2(0, 0)
+	get_node("Shape").set_deferred("disabled", false)
+	get_node("Camera").make_current()
+	alive = true
+	end = false
+
+
+func _on_End_body_entered(body):
+	end = true
+	emit_signal("end")
