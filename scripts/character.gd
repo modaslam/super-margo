@@ -9,6 +9,10 @@ var alive = true
 
 signal died
 
+var left
+var right
+var up
+
 #--------------------------------------------
 
 const WALK_FORCE = 600
@@ -23,9 +27,9 @@ var velocity = Vector2()
 
 func _physics_process(delta):
 	
-	var walk_left = Input.is_action_pressed("move_left")
-	var walk_right = Input.is_action_pressed("move_right")
-	var jump = Input.is_action_pressed("jump")
+	var walk_left = Input.is_action_pressed("move_left") or left
+	var walk_right = Input.is_action_pressed("move_right") or right
+	var jump = Input.is_action_pressed("jump") or up
 	
 	# Horizontal movement code. First, get the player's input.
 	var walk = WALK_FORCE * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
@@ -46,7 +50,7 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 
 	# Check for jumping. is_on_floor() must be called after movement code.
-	if is_on_floor() and Input.is_action_just_pressed("jump") and alive:
+	if is_on_floor() and (Input.is_action_just_pressed("jump") or up) and alive:
 		jump()
 		
 	var on_ground = _rayE.is_colliding() or _rayD.is_colliding()
