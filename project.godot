@@ -16,9 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Super Margo"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+Transition="*res://scenes/Transition.tscn"
 
 [display]
 
