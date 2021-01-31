@@ -17,6 +17,7 @@ func _ready():
 
 
 func _on_Coin_body_entered(body):
+	body.coin()
 	get_node("Anim").play("collect")
 	get_node("Shape").queue_free()
 	yield(get_node("Anim"), "animation_finished")

@@ -10,6 +10,7 @@ var end = false
 
 signal died
 signal end
+signal coin
 
 var left
 var right
@@ -117,3 +118,11 @@ func revive():
 func _on_End_body_entered(body):
 	end = true
 	emit_signal("end")
+
+
+func coin():
+	emit_signal("coin")
+
+
+func _on_GameTime_timeout():
+	die()
